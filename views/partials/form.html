@@ -1,0 +1,34 @@
+<div class="form"{{#if id}} id="{{id}}"{{/if}}>
+	{{#if title}}
+	<h2 class="form-title">{{title}}</h2>
+	{{/if}}
+	{{#if success}}
+	<p class="form-success">{{success}}</p>
+	{{/if}}
+	{{#if instructions}}
+	<p class="form-instructions">{{instructions}}</p>
+	{{/if}}
+	<form method="{{method}}" action="{{action}}">
+		<div class="form-errors">{{#if errors}}{{#each errors}}
+			<p>{{.}}</p>{{/each}}
+		{{/if}}</div>
+		{{#if groups}}
+		<div class="form-groups">
+		{{#each groups}}
+			{{> formGroup .}}
+		{{/each}}
+		</div>
+		{{/if}}
+		<div class="form-buttons">
+			<input class="form-button button" type="submit" value="{{submit}}">
+		</div>
+		{{#if hasRequiredFields}}
+		<div class="form-required-fields-notice">Fields marked with <span class="form-required-example">*</span> are required</div>
+		{{/if}}
+	</form>
+	{{#if help}}
+	<p class="form-help">{{help}}</p>
+	{{else if helpHtml}}
+	<p class="form-help">{{{helpHtml}}}</p>
+	{{/if}}
+</div>
