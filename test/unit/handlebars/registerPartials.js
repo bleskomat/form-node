@@ -1,12 +1,12 @@
 const _ = require('underscore');
 const { expect } = require('chai');
-const Form = require('../../');
+const Form = require('../../../');
 
-describe('registerPartials', function() {
+describe('handlebars.registerPartials', function() {
 
 	it('sanity check', function() {
 		// Create an isolated handlebars environment:
 		const handlebars = require('handlebars').create();
-		Form.registerPartials(handlebars);
+		Form.handlebars.registerPartials(handlebars);
 	});
 });
