@@ -31,6 +31,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const Form = require('form');
 const Handlebars = require('express-handlebars');
+const { ValidationError } = Form;
 
 const app = express();
 
@@ -94,7 +95,8 @@ app.get('/form', function(req, res, next) {
 app.post('/form', function(req, res, next) {
 	// `req.body` is provided by the `bodyParser` middleware.
 	form.validate(req.body).then(values => {
-
+		// Validation successful.
+		// `values` is an object which contains processed form data.
 	}).catch(error => {
 		if (error instanceof ValidationError) {
 			res.status(400);
