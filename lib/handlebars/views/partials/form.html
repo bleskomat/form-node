@@ -7,6 +7,8 @@
 	{{/if}}
 	{{#if instructions}}
 	<p class="form-instructions">{{instructions}}</p>
+	{{else if instructionsHtml}}
+	<p class="form-instructions">{{{instructionsHtml}}}</p>
 	{{/if}}
 	<form method="{{method}}" action="{{action}}">
 		<div class="form-errors">{{#if errors}}{{#each errors}}
@@ -20,7 +22,17 @@
 		</div>
 		{{/if}}
 		<div class="form-buttons">
+			{{#if buttons}}
+				{{#each buttons}}
+					{{#if href}}
+			<a class="form-button button{{#if className}} {{className}}{{/if}}" href="{{href}}">{{label}}</a>
+					{{else}}
+			<input class="form-button button{{#if className}} {{className}}{{/if}}" type="submit" value="{{label}}">
+					{{/if}}
+				{{/each}}
+			{{else}}
 			<input class="form-button button" type="submit" value="{{submit}}">
+			{{/if}}
 		</div>
 		{{#if hasRequiredFields}}
 		<div class="form-required-fields-notice">Fields marked with <span class="form-required-example">*</span> are required</div>

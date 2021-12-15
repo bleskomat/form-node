@@ -4,6 +4,8 @@
 	{{/if}}
 	{{#if instructions}}
 	<p class="form-group-instructions">{{instructions}}</p>
+	{{else if instructionsHtml}}
+	<p class="form-group-instructions">{{{instructionsHtml}}}</p>
 	{{/if}}
 	{{#each inputs}}
 		{{> formFieldRow .}}

@@ -1,3 +1,4 @@
+const cheerio = require('cheerio');
 const { expect } = require('chai');
 const express = require('express');
 const Form = require('../../../');
@@ -98,6 +99,29 @@ describe('express-handlebars', function() {
 				const { response, body } = result;
 				expect(response.statusCode).to.equal(200);
 				expect(body).to.contain('Integration test of the form partial w/ express-handlebars');
+			});
+		});
+
+		it('buttons', function() {
+			const form = new Form({
+				buttons: [
+					{ label: 'Cancel', href: '/', className: 'cancel' },
+					{ label: 'Submit', className: 'submit' },
+				],
+			});
+			const viewPath = path.join(__dirname, 'views', 'form.html');
+			return hbs.renderView(viewPath, {
+				form: form.serialize(),
+				layout: path.join(__dirname, 'views', 'layouts', 'main.html'),
+			}).then(html => {
+				const $ = cheerio.load(html);
+				const $formButtons = $('.form-buttons .form-button');
+				expect($formButtons).to.have.length(2);
+				expect($('.form-buttons .form-button.cancel')).to.have.length(1);
+				expect($('.form-buttons .form-button.submit')).to.have.length(1);
+				expect($formButtons.eq(0).text()).to.equal('Cancel');
+				expect($formButtons.eq(0).attr('href')).to.equal('/');
+				expect($formButtons.eq(1).val()).to.equal('Submit');
 			});
 		});
 	});

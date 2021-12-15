@@ -27,7 +27,9 @@ describe('serialize([options])', function() {
 				expect(serialized.help).to.equal(validOptions.help);
 				expect(serialized.helpHtml).to.equal(validOptions.helpHtml);
 				expect(serialized.instructions).to.equal(validOptions.instructions);
+				expect(serialized.instructionsHtml).to.equal(validOptions.instructionsHtml);
 				expect(serialized.method).to.equal(validOptions.method);
+				expect(serialized.buttons).to.equal(validOptions.buttons);
 				expect(serialized.submit).to.equal(validOptions.submit);
 			},
 		},
