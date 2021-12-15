@@ -1,5 +1,7 @@
 # Changelog
 
+* v1.2.1:
+	* Fix for missing breaklines helper for textarea field type
 * v1.2.0
 	* Removed registerPartials
 	* Added new form options: "buttons", "instructionsHtml"
