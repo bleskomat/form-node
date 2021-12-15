@@ -1,5 +1,7 @@
 # form-node
 
+![Build Status](https://github.com/samotari/form-node/actions/workflows/tests.yml/badge.svg)
+
 Form class for node.js with validation (synchronous and asynchronous), post-processing, and support for handlebars templates.
 
 * [Installation](#installation)
