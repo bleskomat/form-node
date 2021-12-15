@@ -65,6 +65,11 @@ describe('express-handlebars', function() {
 									name: 'someHiddenField',
 									default: '1',
 								},
+								{
+									type: 'textarea',
+									name: 'someTextareaField',
+									default: 'long text goes inside a textarea\nexample line-break',
+								},
 							],
 						},
 					],
