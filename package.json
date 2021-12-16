@@ -27,7 +27,7 @@
       "email": "yo@carlosgarciaortiz.com"
     }
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/samotari/form-node/issues"
   },

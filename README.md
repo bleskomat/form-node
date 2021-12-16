@@ -131,4 +131,5 @@ See [CHANGELOG.md](https://github.com/samotari/form-node/blob/master/CHANGELOG.m
 
 ## License
 
-This software is currently unlicensed, meaning it is not meant for public distribution or use. This may change at some point in the future.
+This software is [MIT licensed](https://tldrlegal.com/license/mit-license):
+> A short, permissive software license. Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source.  There are many variations of this license in use.
