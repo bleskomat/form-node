@@ -33,13 +33,14 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const Form = require('form');
 const Handlebars = require('express-handlebars');
+const path = require('path');
 const { ValidationError } = Form;
 
 const app = express();
 
 const hbs = Handlebars.create({
 	extname: '.html',
-	helpers: _.extend({}, Form.handlebars.helpers),
+	helpers: Form.handlebars.helpers,
 	partialsDir: [
 		path.join(__dirname, 'views', 'partials'),
 		Form.handlebars.partialsDir,
