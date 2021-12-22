@@ -115,6 +115,17 @@ app.post('/form', function(req, res, next) {
 });
 ```
 
+## Form Options
+```
+action:
+groups:
+help:
+helpHTML:
+instructions:
+method:
+submit:
+```
+
 
 ## Tests
 
