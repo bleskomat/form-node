@@ -168,6 +168,62 @@ describe('validate([values])', function() {
 				});
 			},
 		},
+		{
+			description: 'multiple inputs w/ promise',
+			args: {
+				formOptions: _.extend({}, validOptions, {
+					groups: [{
+						inputs: [
+							{
+								name: 'validatePromise1',
+								type: 'text',
+								validate: function(value, data) {
+									return new Promise((resolve, reject) => {
+										setTimeout(resolve, 5);
+									});
+								},
+							},
+							{
+								name: 'validatePromise2',
+								type: 'text',
+								validate: function(value, data) {
+									return new Promise((resolve, reject) => {
+										setTimeout(resolve, 20);
+									});
+								},
+							},
+						],
+					}],
+				}),
+				values: {},
+			},
+		},
+		{
+			description: 'cannot mutate data object',
+			args: {
+				formOptions: _.extend({}, validOptions, {
+					groups: [{
+						inputs: [
+							{
+								name: 'changeData',
+								type: 'text',
+								validate: function(value, data) {
+									data.added = 1;
+								},
+							},
+							{
+								name: 'checkData',
+								type: 'text',
+								validate: function(value, data) {
+									expect(data.added).to.be.undefined;
+								},
+							},
+						],
+					}],
+				}),
+				values: {},
+			},
+		},
 	];
 
 	_.each(tests, function(test) {
