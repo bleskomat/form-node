@@ -1,5 +1,7 @@
 # Changelog
 
+* v1.2.2:
+	* Normalize class names of form groups, rows
 * v1.2.1:
 	* Fix for missing breaklines helper for textarea field type
 * v1.2.0
