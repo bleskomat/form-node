@@ -24,6 +24,9 @@
 	{{#case "password" break=true}}
 	<input class="form-input" type="password"{{#if id}} id="{{id}}"{{/if}} name="{{name}}" value="{{value}}"{{#if readonly}} readonly{{/if}}{{#if disabled}} disabled{{/if}}{{#if tabindex}} tabindex={{tabindex}}{{/if}}{{#if placeholder}} placeholder="{{placeholder}}"{{/if}}{{#if autofocus}} autofocus{{/if}}>
 	{{/case}}
+	{{#case "file" break=true}}
+	<input class="form-input" type="file"{{#if id}} id="{{id}}"{{/if}} name="{{name}}" value="{{value}}"{{#if readonly}} readonly{{/if}}{{#if disabled}} disabled{{/if}}{{#if tabindex}} tabindex={{tabindex}}{{/if}}{{#if autofocus}} autofocus{{/if}}>
+	{{/case}}
 	{{#case "hidden" break=true}}
 	<input class="form-input" type="hidden"{{#if id}} id="{{id}}"{{/if}} name="{{name}}" value="{{value}}"{{#if readonly}} readonly{{/if}}{{#if disabled}} disabled{{/if}}>
 	{{/case}}
