@@ -1,5 +1,5 @@
 const _ = require('underscore');
-const { expect } = require('chai');
+const assert = require('assert');
 const http = require('http');
 const https = require('https');
 const querystring = require('querystring');
@@ -31,7 +31,7 @@ module.exports = {
 			// An error was thrown.
 			if (test.expectThrownError) {
 				// Check if the thrown error message matches what as expected.
-				expect(thrownError.message).to.equal(test.expectThrownError);
+				assert.strictEqual(thrownError.message, test.expectThrownError);
 			} else {
 				// Rethrow because an error wasn't expected.
 				throw thrownError;
@@ -44,7 +44,7 @@ module.exports = {
 				// Return here because expected can return a promise.
 				return test.expected.call(this, result);
 			} else {
-				expect(result).to.deep.equal(test.expected);
+				assert.deepStrictEqual(result, test.expected);
 			}
 		}
 		return result;

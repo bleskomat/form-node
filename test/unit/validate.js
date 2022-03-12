@@ -1,5 +1,5 @@
 const _ = require('underscore');
-const { expect } = require('chai');
+const assert = require('assert');
 const Form = require('../../');
 const { validOptions } = require('../fixtures');
 
@@ -35,9 +35,9 @@ describe('validate([values])', function() {
 								name: 'validateCheckArgs',
 								type: 'text',
 								validate: function(value, data) {
-									expect(value).to.equal('testing027');
-									expect(data).to.be.an('object');
-									expect(data.validateCheckArgs).to.equal(value);
+									assert.strictEqual(value, 'testing027');
+									assert.strictEqual(typeof data, 'object');
+									assert.strictEqual(data.validateCheckArgs, value);
 								},
 							},
 						],
@@ -68,7 +68,7 @@ describe('validate([values])', function() {
 				return promise.then(() => {
 					throw new Error('Expected validation error');
 				}).catch(error => {
-					expect(error.message).to.equal('"requiredField" is required');
+					assert.strictEqual(error.message, '"requiredField" is required');
 				});
 			},
 		},
@@ -113,7 +113,7 @@ describe('validate([values])', function() {
 				return promise.then(() => {
 					throw new Error('Expected validation error');
 				}).catch(error => {
-					expect(error.message).to.equal('thrown inside input validate()');
+					assert.strictEqual(error.message, 'thrown inside input validate()');
 				});
 			},
 		},
@@ -164,7 +164,7 @@ describe('validate([values])', function() {
 				return promise.then(() => {
 					throw new Error('Expected validation error');
 				}).catch(error => {
-					expect(error.message).to.equal('validate() rejected promise');
+					assert.strictEqual(error.message, 'validate() rejected promise');
 				});
 			},
 		},
@@ -215,7 +215,7 @@ describe('validate([values])', function() {
 								name: 'checkData',
 								type: 'text',
 								validate: function(value, data) {
-									expect(data.added).to.be.undefined;
+									assert.strictEqual(typeof data.added, 'undefined');
 								},
 							},
 						],
@@ -226,7 +226,7 @@ describe('validate([values])', function() {
 		},
 	];
 
-	_.each(tests, function(test) {
+	tests.forEach(function(test) {
 		it(test.description, function() {
 			test.fn = function(formOptions, values) {
 				const form = new Form(formOptions);

@@ -1,5 +1,4 @@
 const _ = require('underscore');
-const { expect } = require('chai');
 const Form = require('../../');
 const { validOptions } = require('../fixtures');
 
@@ -113,7 +112,7 @@ describe('process([values])', function() {
 		},
 	];
 
-	_.each(tests, function(test) {
+	tests.forEach(function(test) {
 		it(test.description, function() {
 			test.fn = function(formOptions, values) {
 				const form = new Form(formOptions);

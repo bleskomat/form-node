@@ -1,5 +1,5 @@
+const assert = require('assert');
 const cheerio = require('cheerio');
-const { expect } = require('chai');
 const express = require('express');
 const Form = require('../../../');
 const Handlebars = require('express-handlebars');
@@ -92,8 +92,9 @@ describe('express-handlebars', function() {
 				url: 'http://localhost:3000/',
 			}).then(result => {
 				const { response, body } = result;
-				expect(response.statusCode).to.equal(200);
-				expect(body).to.contain('Integration test of express-handlebars');
+				assert.strictEqual(response.statusCode, 200);
+				assert.strictEqual(typeof body, 'string');
+				assert.ok(body.indexOf('Integration test of express-handlebars') !== -1);
 			});
 		});
 
@@ -102,8 +103,9 @@ describe('express-handlebars', function() {
 				url: 'http://localhost:3000/form',
 			}).then(result => {
 				const { response, body } = result;
-				expect(response.statusCode).to.equal(200);
-				expect(body).to.contain('Integration test of the form partial w/ express-handlebars');
+				assert.strictEqual(response.statusCode, 200);
+				assert.strictEqual(typeof body, 'string');
+				assert.ok(body.indexOf('Integration test of the form partial w/ express-handlebars') !== -1);
 			});
 		});
 
@@ -121,12 +123,12 @@ describe('express-handlebars', function() {
 			}).then(html => {
 				const $ = cheerio.load(html);
 				const $formButtons = $('.form-buttons .form-button');
-				expect($formButtons).to.have.length(2);
-				expect($('.form-buttons .form-button.cancel')).to.have.length(1);
-				expect($('.form-buttons .form-button.submit')).to.have.length(1);
-				expect($formButtons.eq(0).text()).to.equal('Cancel');
-				expect($formButtons.eq(0).attr('href')).to.equal('/');
-				expect($formButtons.eq(1).val()).to.equal('Submit');
+				assert.strictEqual($formButtons.length, 2);
+				assert.strictEqual($('.form-buttons .form-button.cancel').length, 1);
+				assert.strictEqual($('.form-buttons .form-button.submit').length, 1);
+				assert.strictEqual($formButtons.eq(0).text(), 'Cancel');
+				assert.strictEqual($formButtons.eq(0).attr('href'), '/');
+				assert.strictEqual($formButtons.eq(1).val(), 'Submit');
 			});
 		});
 	});

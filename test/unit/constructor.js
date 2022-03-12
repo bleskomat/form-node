@@ -1,5 +1,5 @@
 const _ = require('underscore');
-const { expect } = require('chai');
+const assert = require('assert');
 const Form = require('../../');
 const { validOptions } = require('../fixtures');
 
@@ -11,23 +11,20 @@ describe('constructor', function() {
 	});
 
 	it('options as expected', function() {
-		expect(form.options).to.be.an('object');
-		expect(form.options.action).to.equal(validOptions.action);
-		expect(form.options.groups).to.deep.equal(validOptions.groups);
-		expect(form.options.help).to.equal(validOptions.help);
-		expect(form.options.helpHtml).to.equal(validOptions.helpHtml);
-		expect(form.options.instructions).to.equal(validOptions.instructions);
-		expect(form.options.method).to.equal(validOptions.method);
-		expect(form.options.submit).to.equal(validOptions.submit);
+		assert.strictEqual(typeof form.options, 'object');
+		assert.deepStrictEqual(form.options.groups, validOptions.groups);
+		['action', 'help', 'helpHtml', 'instructions', 'instructionsHtml', 'method', 'buttons', 'submit'].forEach(key => {
+			assert.strictEqual(form.options[key], validOptions[key], `expected form.options[${key}] to equal validOptions[${key}]`);
+		});
 	});
 
 	it('inputs as expected', function() {
-		expect(form.inputs).to.be.an('array');
+		assert.ok(form.inputs instanceof Array);
 	});
 
 	it('methods exist', function() {
-		expect(form.process).to.be.a('function');
-		expect(form.serialize).to.be.a('function');
-		expect(form.validate).to.be.a('function');
+		assert.strictEqual(typeof form.process, 'function');
+		assert.strictEqual(typeof form.serialize, 'function');
+		assert.strictEqual(typeof form.validate, 'function');
 	});
 });

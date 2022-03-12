@@ -1,13 +1,13 @@
 const _ = require('underscore');
-const { expect } = require('chai');
+const assert = require('assert');
 const Form = require('../../../');
 
 describe('handlebars.helpers', function() {
 
 	it('sanity check', function() {
-		expect(Form.handlebars.helpers).to.be.an('object');
+		assert.strictEqual(typeof Form.handlebars.helpers, 'object');
 		_.each(Form.handlebars.helpers, helper => {
-			expect(helper).to.be.a('function');
+			assert.strictEqual(typeof helper, 'function');
 		});
 	});
 });
