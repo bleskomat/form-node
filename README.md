@@ -15,14 +15,10 @@ Form class for node.js with validation (synchronous and asynchronous), post-proc
 
 Add to your application via `npm`:
 ```bash
-npm install samotari/form-node
+npm install @bleskomat/form
 ```
 Note that since this project is private, the installation step requires authentication with a GitHub account which has read access to this repository.
 
-To install a specific version of this module:
-```bash
-npm install samotari/form-node#v1.0.0
-```
 
 
 ## Usage
