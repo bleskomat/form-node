@@ -1,5 +1,9 @@
 # Changelog
 
+* v1.2.4:
+	* Updated dependencies
+* v1.2.3:
+	* Added "file" input type
 * v1.2.2:
 	* Normalize class names of form groups, rows
 * v1.2.1:
