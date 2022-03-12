@@ -1,6 +1,6 @@
 # Changelog
 
-* v1.2.4:
+* v1.2.5:
 	* Updated dependencies
 * v1.2.3:
 	* Added "file" input type
