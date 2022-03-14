@@ -13,15 +13,10 @@
     "url": "git+https://github.com/samotari/form-node.git"
   },
   "author": {
-    "name": "Samotari",
-    "email": "samotari@bleskomat.com",
-    "url": "https://github.com/samotari"
+    "name": "Charles Hill",
+    "email": "chill@degreesofzero.com"
   },
   "contributors": [
-    {
-      "name": "Charles Hill",
-      "email": "chill@degreesofzero.com"
-    },
     {
       "name": "Carlos Garcia Ortiz",
       "email": "yo@carlosgarciaortiz.com"
