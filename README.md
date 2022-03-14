@@ -27,7 +27,7 @@ To use with [express-handlebars](https://www.npmjs.com/package/express-handlebar
 ```js
 const bodyParser = require('body-parser');
 const express = require('express');
-const Form = require('form');
+const Form = require('@bleskomat/form');
 const Handlebars = require('express-handlebars');
 const path = require('path');
 const { ValidationError } = Form;
