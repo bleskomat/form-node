@@ -17,8 +17,6 @@ Add to your application via `npm`:
 ```bash
 npm install @bleskomat/form
 ```
-Note that since this project is private, the installation step requires authentication with a GitHub account which has read access to this repository.
-
 
 
 ## Usage
