@@ -1,6 +1,6 @@
 # form-node
 
-![Build Status](https://github.com/samotari/form-node/actions/workflows/tests.yml/badge.svg)
+![Build Status](https://github.com/bleskomat/form-node/actions/workflows/tests.yml/badge.svg)
 
 Form class for node.js with validation (synchronous and asynchronous), post-processing, and support for handlebars templates.
 
@@ -121,7 +121,7 @@ npm test
 
 ## Changelog
 
-See [CHANGELOG.md](https://github.com/samotari/form-node/blob/master/CHANGELOG.md)
+See [CHANGELOG.md](https://github.com/bleskomat/form-node/blob/master/CHANGELOG.md)
 
 
 ## License
