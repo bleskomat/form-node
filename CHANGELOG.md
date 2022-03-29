@@ -1,5 +1,7 @@
 # Changelog
 
+* v1.2.6:
+	* Upgrade dependency
 * v1.2.5:
 	* Updated dependencies
 * v1.2.3:
