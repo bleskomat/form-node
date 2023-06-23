@@ -1,4 +1,3 @@
-const _ = require('underscore');
 const assert = require('assert');
 const http = require('http');
 const https = require('https');
@@ -7,27 +6,21 @@ const url = require('url');
 
 module.exports = {
 	runTest: function(test, cb) {
-		if (_.isFunction(cb)) {
-			throw new Error('Callback is not allowed with runTest');
-		}
+		assert.notStrictEqual(typeof cb, 'function', 'Callback is not allowed with runTest');
 		return this.runFunctionTest(test);
 	},
 	runFunctionTest: function(test, cb) {
-		if (_.isFunction(cb)) {
-			throw new Error('Callback is not allowed with runFunctionTest');
-		}
+		assert.notStrictEqual(typeof cb, 'function', 'Callback is not allowed with runFunctionTest');
 		let result;
 		let thrownError;
-		let args = _.result(test, 'args');
-		if (_.isObject(args)) {
-			args = _.values(args);
+		let args = typeof test.args === 'function' ? test.args.call(test) : test.args;
+		if (typeof args === 'object') {
+			args = Object.values(args);
 		}
-		try {
-			result = test.fn.apply(undefined, args);
-		} catch (error) {
+		try { result = test.fn.apply(undefined, args); } catch (error) {
 			thrownError = error;
 		}
-		if (!_.isUndefined(thrownError)) {
+		if (typeof thrownError !== 'undefined') {
 			// An error was thrown.
 			if (test.expectThrownError) {
 				// Check if the thrown error message matches what as expected.
@@ -39,8 +32,8 @@ module.exports = {
 		} else if (test.expectThrownError) {
 			throw new Error(`Expected error to be thrown: '${test.expectThrownError}'`);
 		}
-		if (!_.isUndefined(test.expected)) {
-			if (_.isFunction(test.expected)) {
+		if (typeof test.expected !== 'undefined') {
+			if (typeof test.expected === 'function') {
 				// Return here because expected can return a promise.
 				return test.expected.call(this, result);
 			} else {
@@ -53,12 +46,14 @@ module.exports = {
 		return new Promise((resolve, reject) => {
 			try {
 				const parsedUrl = url.parse(requestOptions.url);
-				let options = _.chain(requestOptions).pick('ca', 'headers').extend({
+				let options = {
 					method: method.toUpperCase(),
 					hostname: parsedUrl.hostname,
 					port: parsedUrl.port,
 					path: parsedUrl.path,
-				}).value();
+					ca: requestOptions.ca || null,
+					headers: requestOptions.headers || {},
+				};
 				options.headers = options.headers || {};
 				if (requestOptions.qs) {
 					options.path += '?' + querystring.stringify(requestOptions.qs);
@@ -82,9 +77,7 @@ module.exports = {
 					});
 					response.on('end', function() {
 						if (requestOptions.json) {
-							try {
-								body = JSON.parse(body);
-							} catch (error) {
+							try { body = JSON.parse(body); } catch (error) {
 								return reject(error);
 							}
 						}

@@ -1,4 +1,3 @@
-const _ = require('underscore');
 const assert = require('assert');
 const Form = require('../../');
 const { validOptions } = require('../fixtures');
@@ -9,7 +8,7 @@ describe('validate([values])', function() {
 		{
 			description: 'OK',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -28,7 +27,7 @@ describe('validate([values])', function() {
 		{
 			description: 'validate(value, data)',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -51,7 +50,7 @@ describe('validate([values])', function() {
 		{
 			description: 'required missing',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -75,7 +74,7 @@ describe('validate([values])', function() {
 		{
 			description: 'required has value',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -94,7 +93,7 @@ describe('validate([values])', function() {
 		{
 			description: 'thrown error',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -120,7 +119,7 @@ describe('validate([values])', function() {
 		{
 			description: 'promise resolved',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -141,7 +140,7 @@ describe('validate([values])', function() {
 		{
 			description: 'promise rejected',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -171,7 +170,7 @@ describe('validate([values])', function() {
 		{
 			description: 'multiple inputs w/ promise',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -201,7 +200,7 @@ describe('validate([values])', function() {
 		{
 			description: 'cannot mutate data object',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{

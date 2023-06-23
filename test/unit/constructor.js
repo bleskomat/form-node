@@ -1,4 +1,3 @@
-const _ = require('underscore');
 const assert = require('assert');
 const Form = require('../../');
 const { validOptions } = require('../fixtures');

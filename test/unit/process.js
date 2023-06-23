@@ -1,4 +1,3 @@
-const _ = require('underscore');
 const Form = require('../../');
 const { validOptions } = require('../fixtures');
 
@@ -8,7 +7,7 @@ describe('process([values])', function() {
 		{
 			description: 'standard',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -29,7 +28,7 @@ describe('process([values])', function() {
 		{
 			description: 'default value',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -49,7 +48,7 @@ describe('process([values])', function() {
 		{
 			description: 'checkbox is checked',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -70,7 +69,7 @@ describe('process([values])', function() {
 		{
 			description: 'checkbox is not checked',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{
@@ -89,7 +88,7 @@ describe('process([values])', function() {
 		{
 			description: 'process: function() {}',
 			args: {
-				formOptions: _.extend({}, validOptions, {
+				formOptions: Object.assign({}, validOptions, {
 					groups: [{
 						inputs: [
 							{

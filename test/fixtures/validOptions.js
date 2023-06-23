@@ -1,8 +1,9 @@
 module.exports = {
 	action: '/some/uri/path',
 	instructions: 'Instructional text about what to do with this form.',
+	instructionsHtml: 'Instructional html which is <b>not escaped so use with caution</b>.',
 	help: 'Help text that is displayed below the form.',
-	helpHtml: 'Help text (!! not escaped, use with caution !!) that is displayed below the form.',
+	helpHtml: 'Help html that is <b>not escaped so use with caution</b>.',
 	submit: 'Submit button label',
 	method: 'post',
 	groups: [{

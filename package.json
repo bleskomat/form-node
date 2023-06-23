@@ -1,6 +1,6 @@
 {
   "name": "@bleskomat/form",
-  "version": "1.2.5",
+  "version": "1.3.0",
   "description": "Form class for node.js with validation (synchronous and asynchronous), post-processing, and support for handlebars templates.",
   "main": "index.js",
   "scripts": {
@@ -28,12 +28,11 @@
   },
   "homepage": "https://github.com/bleskomat/form-node#readme",
   "dependencies": {
-    "express-handlebars": "6.0.3",
-    "underscore": "1.13.2"
+    "express-handlebars": "7.0.7"
   },
   "devDependencies": {
-    "cheerio": "1.0.0-rc.10",
-    "express": "4.17.3",
-    "mocha": "9.2.2"
+    "cheerio": "1.0.0-rc.12",
+    "express": "4.18.2",
+    "mocha": "10.2.0"
   }
 }
