@@ -1,5 +1,7 @@
 # Changelog
 
+* v1.3.2:
+	* Downgraded express-handlebars due to incompatibility with nodejs <16
 * v1.3.1:
 	* Updated dependencies
 * v1.3.0:
