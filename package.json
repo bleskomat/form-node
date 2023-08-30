@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/bleskomat/form-node#readme",
   "dependencies": {
-    "express-handlebars": "7.1.2"
+    "express-handlebars": "6.0.7"
   },
   "devDependencies": {
     "cheerio": "1.0.0-rc.12",
