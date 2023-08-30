@@ -1,5 +1,7 @@
 # Changelog
 
+* v1.3.1:
+	* Updated dependencies
 * v1.3.0:
 	* Added "autocomplete" input attribute
 	* Updated dependencies, removed underscore
